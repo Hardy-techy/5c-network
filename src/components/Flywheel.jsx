@@ -1,7 +1,9 @@
 import React from 'react';
 import { RefreshCw, ArrowRight } from 'lucide-react';
+import { useModal } from '../context/ModalContext';
 
 const Flywheel = () => {
+  const { openModal } = useModal();
   return (
     <section className="py-12 md:py-16 bg-brand-surface overflow-hidden">
       <div className="section-container relative">
@@ -14,7 +16,7 @@ const Flywheel = () => {
             <p className="text-lg md:text-xl text-brand-muted font-light mb-12 leading-relaxed max-w-xl">
               A self-reinforcing cycle that compounds daily. 10,000+ expert corrections per day. The AI that reads your scan tomorrow is better than the one that reads it today.
             </p>
-            <button className="flex items-center justify-center bg-brand-dark text-white px-6 py-3 rounded-full font-medium hover:bg-brand-dark/90 transition-colors text-sm w-fit">
+            <button onClick={openModal} className="flex items-center justify-center bg-brand-dark text-white px-6 py-3 rounded-full font-medium hover:bg-brand-dark/90 transition-colors text-sm w-fit">
               Learn how the flywheel works <ArrowRight className="ml-2 w-4 h-4" />
             </button>
           </div>

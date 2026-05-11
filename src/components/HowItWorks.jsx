@@ -1,18 +1,19 @@
 import React from 'react';
 import { UploadCloud, Cpu, FileCheck2, ArrowRight } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 const HowItWorks = () => {
   return (
-    <section className="pt-20 pb-16 md:pt-24 md:pb-20 bg-brand-surface" id="how-it-works">
+    <section className="py-16 md:py-24 bg-brand-surface" id="how-it-works">
       <div className="section-container">
         
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="text-brand-primary font-bold tracking-widest text-xs mb-4 block uppercase bg-brand-primary/10 w-fit mx-auto px-3 py-1 rounded-full">Automated Workflow</span>
-          <h2 className="text-4xl md:text-5xl font-semibold tracking-tight text-brand-dark mb-6">
-            How your AI radiologist works
+        <div className="max-w-3xl mb-16">
+          <span className="text-brand-primary font-medium tracking-widest text-xs mb-4 block uppercase">For Hospitals</span>
+          <h2 className="text-4xl md:text-5xl font-normal tracking-tight text-brand-dark mb-6">
+            How your AI radiologist <span className="font-medium italic text-brand-primary">works</span>
           </h2>
-          <p className="text-lg text-brand-muted font-medium leading-relaxed">
-            From scan to signed report in 30 minutes. AI runs the heavy lifting, radiologists finalize the diagnosis.
+          <p className="text-lg text-brand-muted font-light leading-relaxed">
+            From scan to signed report — AI runs the workflow, radiologists own the diagnosis.
           </p>
         </div>
 
@@ -33,9 +34,9 @@ const HowItWorks = () => {
                 <UploadCloud className="w-8 h-8 text-brand-dark mb-1 group-hover:text-brand-primary transition-colors" />
                 <span className="text-[10px] font-bold text-brand-muted uppercase tracking-wider">DICOM</span>
               </div>
-              <h3 className="text-xl font-bold text-brand-dark mb-3">Scan Arrives</h3>
-              <p className="text-sm text-brand-muted font-medium leading-relaxed">
-                Your PACS securely pushes the study to 5C via DICOM. Zero on-premise hardware required.
+              <h3 className="text-xl font-normal text-brand-dark mb-3">Scan Arrives</h3>
+              <p className="text-sm text-brand-muted font-light leading-relaxed">
+                Your PACS sends studies to 5C via DICOM. No hardware needed. Live in 72 hours.
               </p>
             </div>
 
@@ -46,9 +47,9 @@ const HowItWorks = () => {
                 <Cpu className="w-8 h-8 text-brand-dark mb-1 group-hover:text-indigo-600 transition-colors" />
                 <span className="text-[10px] font-bold text-brand-muted uppercase tracking-wider">Analysis</span>
               </div>
-              <h3 className="text-xl font-bold text-brand-dark mb-3">AI Processes</h3>
-              <p className="text-sm text-brand-muted font-medium leading-relaxed">
-                Bionic Vision detects anomalies and drafts a structured report in seconds. A specialist reviews it.
+              <h3 className="text-xl font-normal text-brand-dark mb-3">AI Reads the Scan</h3>
+              <p className="text-sm text-brand-muted font-light leading-relaxed">
+                Bionic Vision analyzes in 10–20 seconds. Detects, segments, measures. An expert radiologist reviews and signs off.
               </p>
             </div>
 
@@ -59,9 +60,9 @@ const HowItWorks = () => {
                 <FileCheck2 className="w-8 h-8 text-brand-dark mb-1 group-hover:text-emerald-600 transition-colors" />
                <span className="text-[10px] font-bold text-brand-muted uppercase tracking-wider">RIS/PACS</span>
               </div>
-              <h3 className="text-xl font-bold text-brand-dark mb-3">Report Delivered</h3>
-              <p className="text-sm text-brand-muted font-medium leading-relaxed">
-                The finalized, signed report is pushed directly back into your hospital systems automatically.
+              <h3 className="text-xl font-normal text-brand-dark mb-3">Report Delivered</h3>
+              <p className="text-sm text-brand-muted font-light leading-relaxed">
+                Structured, AI-validated report back in your RIS/PACS. Average turnaround: 30 minutes.
               </p>
             </div>
 

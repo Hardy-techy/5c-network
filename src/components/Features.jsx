@@ -1,73 +1,101 @@
 import React from 'react';
-import { Eye, FileText, CheckCircle2, Scan, Activity, Shield, ArrowRight } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { Eye, FileText, CheckCircle2, ArrowRight } from 'lucide-react';
 import { useModal } from '../context/ModalContext';
-import { SpotlightCard } from './SpotlightCard';
 
 const Features = () => {
   const { openModal } = useModal();
 
   return (
-    <section className="section-padding bg-brand-surface">
+    <section className="py-16 md:py-24 bg-brand-surface" id="ai-features">
       <div className="section-container">
-        <div className="max-w-3xl mb-12 md:mb-16">
-          <h2 className="text-4xl md:text-5xl lg:text-5xl font-normal tracking-tight mb-6">Meet your <span className="text-brand-primary font-medium italic">AI radiologist</span></h2>
-          <p className="text-lg md:text-xl text-brand-muted font-light">
-            Trained on 3 billion+ medical images. Reads CT, MRI, X-ray, and more. Validates every report. Always on, always learning.
-          </p>
-        </div>
-
-        <div className="grid md:grid-cols-12 gap-6 lg:gap-8">
-          <SpotlightCard className="md:col-span-8 bg-white border border-brand-border/60 shadow-sm rounded-3xl p-0 overflow-hidden flex flex-col md:flex-row shadow-card hover:shadow-card-hover transition-shadow">
-            <div className="p-10 md:p-12 flex flex-col flex-grow md:w-1/2 justify-center relative z-20">
-              <div className="w-14 h-14 rounded-2xl bg-blue-50/50 border border-blue-100 flex items-center justify-center mb-8 text-brand-primary">
-                <Eye className="w-6 h-6" />
-              </div>
-              <h3 className="text-3xl font-normal tracking-tight mb-4">AI that sees</h3>
-              <p className="text-brand-muted font-light leading-relaxed mb-10 flex-grow">
-                Bionic Vision analyzes CT, MRI, X-ray, PET-CT, and ultrasound. Segments, measures, and flags critical findings — in <span className="font-mono text-brand-dark px-1">10-20s</span> per scan.
+        
+        <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 relative">
+          
+          {/* Left Column: Sticky Context */}
+          <motion.div 
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: '-100px' }}
+            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+            className="lg:w-5/12"
+          >
+            <div className="lg:sticky lg:top-32">
+              <h2 className="text-4xl md:text-5xl font-normal tracking-tight text-brand-dark mb-6">Meet your <span className="text-brand-primary font-medium italic">AI radiologist</span></h2>
+              <p className="text-lg md:text-xl text-brand-muted font-light leading-relaxed mb-10">
+                Trained on 3 billion+ medical images. Reads CT, MRI, X-ray, and more. Validates every report. Always on, always learning.
               </p>
-              <button onClick={openModal} className="inline-flex items-center pb-2 border-b border-brand-primary/30 text-brand-primary font-medium hover:border-brand-primary transition-colors text-sm w-fit group">
-                Explore Bionic <ArrowRight className="ml-2 w-4 h-4 transform group-hover:translate-x-1 transition-transform" />
-              </button>
             </div>
-            <div className="h-64 md:h-auto md:w-1/2 bg-blue-50 relative overflow-hidden border-l border-brand-border/60 hidden md:block">
-               {/* Abstract placeholder for UI/graphic */}
-               <div className="absolute inset-0 opacity-20" style={{ backgroundImage: 'radial-gradient(#2563EB 2px, transparent 2px)', backgroundSize: '24px 24px' }}></div>
-               <div className="absolute bottom-[-10%] right-[-10%] w-[120%] h-[120%] rounded-tl-full bg-gradient-to-tr from-brand-primary/10 to-transparent"></div>
-            </div>
-          </SpotlightCard>
+          </motion.div>
 
-          <SpotlightCard spotlightColor="rgba(147, 51, 234, 0.15)" className="md:col-span-4 bg-white border border-brand-border/60 shadow-sm rounded-3xl p-0 overflow-hidden flex flex-col shadow-card hover:shadow-card-hover transition-shadow">
-            <div className="p-10 flex flex-col flex-grow relative z-20">
-              <div className="w-14 h-14 rounded-2xl bg-purple-50/50 border border-purple-100 flex items-center justify-center mb-8 text-purple-600">
-                <FileText className="w-6 h-6" />
+          {/* Right Column: Feature List */}
+          <div className="lg:w-7/12 flex flex-col gap-12 md:gap-16 lg:mt-8">
+            
+            {/* 1. Sees */}
+            <motion.div 
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-50px' }}
+              transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+              className="flex flex-col sm:flex-row gap-6 lg:gap-8 items-start group"
+            >
+              <div className="w-16 h-16 shrink-0 rounded-2xl bg-blue-50/50 border border-blue-100/50 flex items-center justify-center text-brand-primary group-hover:scale-105 transition-transform duration-300">
+                <Eye className="w-7 h-7" />
               </div>
-              <h3 className="text-2xl font-normal tracking-tight mb-4">AI that reports</h3>
-              <p className="text-brand-muted font-light leading-relaxed mb-10 flex-grow">
-                Dictate naturally, get structured reports. <span className="font-mono text-brand-dark">400+</span> subspecialists backed by AI. Every scan read, every report signed. 30-minute turnaround.
-              </p>
-              <button onClick={openModal} className="inline-flex items-center pb-2 border-b border-purple-600/30 text-purple-600 font-medium hover:border-purple-600 transition-colors text-sm w-fit mt-auto group">
-                Learn more <ArrowRight className="ml-2 w-4 h-4 transform group-hover:translate-x-1 transition-transform" />
-              </button>
-            </div>
-          </SpotlightCard>
+              <div>
+                <h3 className="text-2xl font-normal text-brand-dark mb-3">AI that sees</h3>
+                <p className="text-base md:text-lg text-brand-muted font-light leading-relaxed mb-4">
+                  Bionic Vision analyzes CT, MRI, X-ray, PET-CT, and ultrasound. Segments, measures, and flags critical findings in <span className="font-medium text-brand-dark">10-20 seconds</span> per scan.
+                </p>
+                <button onClick={openModal} className="inline-flex items-center text-brand-primary font-medium hover:opacity-80 transition-opacity text-sm group/btn">
+                  Explore Bionic <ArrowRight className="ml-2 w-4 h-4 transform group-hover/btn:translate-x-1 transition-transform" />
+                </button>
+              </div>
+            </motion.div>
 
-          <SpotlightCard spotlightColor="rgba(16, 185, 129, 0.15)" className="md:col-span-12 bg-white border border-brand-border/60 shadow-sm rounded-3xl p-0 overflow-hidden flex flex-col md:flex-row shadow-card hover:shadow-card-hover transition-shadow">
-            <div className="p-10 md:p-12 lg:p-16 flex flex-col flex-grow justify-center md:w-1/2 relative z-20">
-              <div className="w-14 h-14 rounded-2xl bg-emerald-50/50 border border-emerald-100 flex items-center justify-center mb-8 text-emerald-500">
-                <CheckCircle2 className="w-6 h-6" />
+            {/* 2. Reports */}
+            <motion.div 
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-50px' }}
+              transition={{ duration: 0.5, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+              className="flex flex-col sm:flex-row gap-6 lg:gap-8 items-start group"
+            >
+              <div className="w-16 h-16 shrink-0 rounded-2xl bg-purple-50/50 border border-purple-100/50 flex items-center justify-center text-purple-600 group-hover:scale-105 transition-transform duration-300">
+                <FileText className="w-7 h-7" />
               </div>
-              <h3 className="text-3xl lg:text-4xl font-normal tracking-tight text-brand-dark mb-6">AI that validates</h3>
-              <p className="text-brand-muted font-light leading-relaxed mb-10 flex-grow text-lg max-w-lg">
-                Specialized QC agents check every report before sign-off. Catches contradictions, ensures completeness, and validates clinical accuracy automatically.
-              </p>
-              {/* No button per text file */}
-            </div>
-             <div className="h-64 md:h-auto md:w-1/2 bg-emerald-50/50 relative overflow-hidden border-l border-brand-border/60 hidden md:block">
-               <div className="absolute inset-0 opacity-20" style={{ backgroundImage: 'radial-gradient(#10B981 2px, transparent 2px)', backgroundSize: '32px 32px' }}></div>
-               <div className="absolute bottom-[-10%] left-[-10%] w-[120%] h-[120%] rounded-tr-full bg-gradient-to-tl from-emerald-500/5 to-transparent"></div>
-            </div>
-          </SpotlightCard>
+              <div>
+                <h3 className="text-2xl font-normal text-brand-dark mb-3">AI that reports</h3>
+                <p className="text-base md:text-lg text-brand-muted font-light leading-relaxed mb-4">
+                  Dictate naturally, get structured reports. Empowered by <span className="font-medium text-brand-dark">400+</span> subspecialists backed by AI. Every scan read, every report signed. 30-minute turnaround.
+                </p>
+                <button onClick={openModal} className="inline-flex items-center text-purple-600 font-medium hover:opacity-80 transition-opacity text-sm group/btn">
+                  Learn more <ArrowRight className="ml-2 w-4 h-4 transform group-hover/btn:translate-x-1 transition-transform" />
+                </button>
+              </div>
+            </motion.div>
+
+            {/* 3. Validates */}
+            <motion.div 
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-50px' }}
+              transition={{ duration: 0.5, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+              className="flex flex-col sm:flex-row gap-6 lg:gap-8 items-start group"
+            >
+              <div className="w-16 h-16 shrink-0 rounded-2xl bg-emerald-50/50 border border-emerald-100/50 flex items-center justify-center text-emerald-500 group-hover:scale-105 transition-transform duration-300">
+                <CheckCircle2 className="w-7 h-7" />
+              </div>
+              <div>
+                <h3 className="text-2xl font-normal text-brand-dark mb-3">AI that validates</h3>
+                <p className="text-base md:text-lg text-brand-muted font-light leading-relaxed">
+                  Specialized QC agents check every report before sign-off. Catches contradictions, ensures completeness, and validates clinical accuracy automatically.
+                </p>
+              </div>
+            </motion.div>
+
+          </div>
+
         </div>
       </div>
     </section>

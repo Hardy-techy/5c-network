@@ -1,7 +1,7 @@
 import React from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
-import SocialProof from './components/SocialProof';
+
 import Stats from './components/Stats';
 import Features from './components/Features';
 import HowItWorks from './components/HowItWorks';
@@ -21,7 +21,7 @@ function App() {
       
       <main>
         <Hero />
-        <SocialProof />
+
         <Stats />
         <HowWeHelp />
         <Features />

@@ -66,7 +66,7 @@ const HowWeHelp = () => {
                   I manage a chain
                 </h2>
                 <p className="text-brand-light/60 text-base leading-relaxed mb-8 font-light flex-grow">
-                  Multi-site, enterprise, scale
+                  Centralized radiology operations across all your sites. Unified dashboards, volume-based pricing, and dedicated account management for hospital chains and diagnostic groups.
                 </p>
 
                 <button onClick={openModal} className="inline-flex items-center pb-2 border-b border-white/20 text-white font-medium group-hover:border-white transition-colors mt-auto w-fit text-sm">
