@@ -18,6 +18,7 @@ const Footer = () => {
                   e.target.style.display = 'none'; 
                 }} 
               />
+              <span className="text-xl font-medium tracking-tight">5C Network</span>
             </div>
             <p className="text-brand-muted leading-relaxed mb-8 pr-8">
               Make radiology accurate, actionable and accessible for everyone using multimodal, autonomous imaging and reporting.
