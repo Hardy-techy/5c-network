@@ -2,52 +2,61 @@
 @tailwind components;
 @tailwind utilities;
 
-html {
-  scroll-behavior: smooth;
-  scroll-padding-top: 100px; /* Offset for fixed navbar */
+@layer base {
+  body {
+    @apply bg-brand-light text-brand-dark font-sans antialiased selection:bg-brand-primary/20 selection:text-brand-dark;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading tracking-tight text-brand-dark font-bold;
+  }
 }
 
-section, [class*="motion"] {
-  will-change: transform, opacity;
+@layer components {
+  /* Layout */
+  .section-padding {
+    @apply py-16 md:py-20;
+  }
+
+  .section-container {
+    @apply max-w-7xl mx-auto px-6 md:px-12 lg:px-16;
+  }
+
+  /* Buttons - High Contrast, Conversion Focused */
+  .btn-primary {
+    @apply inline-flex items-center justify-center font-semibold text-white bg-brand-primary rounded-lg
+           px-6 py-3 shadow-sm hover:bg-brand-primaryDark transition-all duration-200 transform hover:-translate-y-0.5;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center font-semibold text-brand-primary bg-brand-primary/10 rounded-lg
+           px-6 py-3 hover:bg-brand-primary/20 transition-all duration-200;
+  }
+
+  /* Cards - Clean, Trustworthy */
+  .card {
+    @apply bg-white border border-brand-border rounded-xl p-8 transition-all duration-300 shadow-card;
+  }
+  
+  .card-hover {
+    @apply hover:shadow-card-hover hover:border-brand-primary/30;
+  }
 }
 
-body {
-  background-color: #050505;
-  color: #e5e5e5;
-}
-
-/* Base text selection */
-::selection {
-  background: #bdfa14;
-  color: #000;
-}
-
-/* Hide scrollbar for a cleaner cinematic look but keep functionality */
+/* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
 }
+
 ::-webkit-scrollbar-track {
-  background: #050505;
-}
-::-webkit-scrollbar-thumb {
-  background: #1a1a1a;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: #333;
+  background: #F8FAFC;
 }
 
-@layer utilities {
-  .clip-text-reveal {
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
-  }
-  
-  .text-outline {
-    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.2);
-    color: transparent;
-  }
-  
-  .text-outline:hover {
-    -webkit-text-stroke: 1px #bdfa14;
-    color: #bdfa14;
-  }
+::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94A3B8;
 }

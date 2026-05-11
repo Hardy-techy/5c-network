@@ -3,96 +3,80 @@ import { motion } from 'framer-motion';
 
 const Bento = () => {
   return (
-    <motion.section initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-50px" }} transition={{ duration: 1, ease: [0.25, 0.46, 0.45, 0.94] }} className="pt-12 md:pt-16 pb-20 md:pb-24 px-6 lg:px-12 bg-brand-dark relative z-20">
-      <div className="container mx-auto">
+    <section className="section-padding bg-brand-dark relative z-10" id="audiences">
+      <div className="section-container">
         
-        <div className="mb-24 flex justify-between items-end">
-          <h2 className="font-display font-bold text-5xl md:text-7xl max-w-3xl leading-[0.9] tracking-tighter uppercase">
-            How can we <br/>
-            <span className="text-brand-accent italic">help you?</span>
-          </h2>
-        </div>
-
-        {/* 3-Column Grid for Roles */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
           
           {/* Hospital Card */}
-          <motion.a 
-            href="#"
-            initial={{ opacity: 0, y: 20 }}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            className="bg-[#0a0a0a] border border-white/10 p-10 flex flex-col justify-between hover:border-brand-accent transition-colors group overflow-hidden relative min-h-[400px]"
+            viewport={{ once: true, margin: '-100px' }}
+            className="group relative border border-white/10 bg-brand-surface p-8 md:p-12 overflow-hidden min-h-[400px] flex flex-col justify-between hover:border-brand-accent/50 transition-colors duration-500"
           >
-            <div className="absolute top-0 left-0 w-full h-1 bg-brand-accent scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-500 z-20"></div>
-            <div className="absolute inset-0 opacity-20 group-hover:opacity-40 transition-opacity duration-700 z-0">
-              <img src="https://images.unsplash.com/photo-1516549655169-df83a0774514?q=80&w=1000&auto=format&fit=crop" alt="Hospital Facility" className="w-full h-full object-cover mix-blend-luminosity" />
+            {/* Background Image */}
+            <div className="absolute inset-0 opacity-20 group-hover:opacity-30 transition-opacity duration-700 mix-blend-luminosity">
+              <img src="/2.kYfC9R8h.jpg" alt="Hospital" className="w-full h-full object-cover" />
             </div>
-            <div className="relative z-10">
-              <p className="font-sans text-xs text-brand-light/50 uppercase tracking-widest mb-4">For Hospitals</p>
-              <h3 className="font-display text-3xl mb-4 group-hover:text-brand-accent transition-colors">I run a hospital or diagnostic center</h3>
-              <p className="text-brand-light/70 text-sm leading-relaxed mb-8">
-                Signed radiology reports in 30 minutes. 24/7 coverage. Pay-per-scan — no retainers. 1,500+ hospitals trust 5C.
-              </p>
-            </div>
-            <div className="relative z-10 inline-flex items-center gap-2 font-sans text-sm font-bold border-b border-brand-accent text-brand-accent pb-1 w-max mt-auto">
-              See pricing & coverage <span className="group-hover:translate-x-1 transition-transform">&rarr;</span>
-            </div>
-          </motion.a>
+            <div className="absolute inset-0 bg-gradient-to-b from-brand-surface via-brand-surface/80 to-brand-dark/90" />
 
-          {/* Enterprise Card */}
-          <motion.a 
-            href="#"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ delay: 0.1 }}
-            className="bg-[#111] border border-white/10 p-10 relative overflow-hidden group hover:border-brand-accent transition-colors min-h-[400px] flex flex-col justify-between"
-          >
-            <div className="absolute top-0 left-0 w-full h-1 bg-brand-accent scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-500 z-20"></div>
-            <div className="absolute inset-0 opacity-20 group-hover:opacity-40 transition-opacity duration-700 z-0">
-              <img src="https://images.unsplash.com/photo-1576086213369-97a306d36557?q=80&w=1000&auto=format&fit=crop" alt="Enterprise" className="w-full h-full object-cover mix-blend-luminosity" />
-            </div>
             <div className="relative z-10">
-              <p className="font-sans text-xs text-brand-light/50 uppercase tracking-widest mb-4">Enterprise</p>
-              <h3 className="font-display text-3xl mb-4 group-hover:text-brand-accent transition-colors">I manage a chain</h3>
-              <p className="text-brand-light/70 text-sm leading-relaxed mb-8">
-                Multi-site, enterprise, scale. Unify your radiology operations across all your centers with a single platform.
-              </p>
+              <span className="text-brand-accent font-bold uppercase tracking-widest text-xs mb-4 block">For Hospitals & Clinics</span>
+              <h2 className="text-3xl md:text-4xl font-syne font-bold text-white mb-6">
+                Turn your scanner into a diagnostic powerhouse.
+              </h2>
+              <ul className="space-y-3 mb-8">
+                {['Reports in 30 minutes, 24/7/365', '400+ subspecialist radiologists', 'Zero hardware required', 'Live in 72 hours'].map(item => (
+                  <li key={item} className="flex items-center gap-3 text-brand-light/80">
+                    <div className="w-1.5 h-1.5 bg-brand-accent rounded-full" />
+                    <span className="font-medium">{item}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
-            <div className="relative z-10 inline-flex items-center gap-2 font-sans text-sm font-bold border-b border-brand-accent text-brand-accent pb-1 w-max mt-auto">
-              Contact Enterprise Sales <span className="group-hover:translate-x-1 transition-transform">&rarr;</span>
-            </div>
-          </motion.a>
+            
+            <a href="#contact" className="relative z-10 btn-secondary self-start w-full sm:w-auto border-brand-accent text-brand-accent hover:bg-brand-accent hover:text-brand-dark">
+              View Hospital Pricing
+            </a>
+          </motion.div>
 
           {/* Radiologist Card */}
-          <motion.a 
-            href="#"
-            initial={{ opacity: 0, y: 20 }}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ delay: 0.2 }}
-            className="bg-[#0a0a0a] border border-white/10 p-10 flex flex-col justify-between hover:border-brand-accent transition-colors group relative overflow-hidden min-h-[400px]"
+            viewport={{ once: true, margin: '-100px', delay: 0.1 }}
+            className="group relative border border-white/10 bg-brand-surface p-8 md:p-12 overflow-hidden min-h-[400px] flex flex-col justify-between hover:border-white/40 transition-colors duration-500"
           >
-            <div className="absolute top-0 left-0 w-full h-1 bg-brand-accent scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-500 z-20"></div>
-            <div className="absolute inset-0 opacity-20 group-hover:opacity-40 transition-opacity duration-700 z-0">
-              <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=1000&auto=format&fit=crop" alt="Radiologist" className="w-full h-full object-cover mix-blend-luminosity" />
+            {/* Background Image */}
+            <div className="absolute inset-0 opacity-20 group-hover:opacity-30 transition-opacity duration-700 mix-blend-luminosity">
+              <img src="/4.v3oH1wGk.png" alt="Radiologist" className="w-full h-full object-cover" />
             </div>
+            <div className="absolute inset-0 bg-gradient-to-b from-brand-surface via-brand-surface/80 to-brand-dark/90" />
+
             <div className="relative z-10">
-              <p className="font-sans text-xs text-brand-light/50 uppercase tracking-widest mb-4">For Radiologists</p>
-              <h3 className="font-display text-3xl mb-4 group-hover:text-brand-accent transition-colors">I'm a radiologist</h3>
-              <p className="text-brand-light/70 text-sm leading-relaxed mb-8">
-                Report from home. Premium night rates (+20% for 1-5 AM). Sub-specialty cases daily. 400+ radiologists.
-              </p>
+              <span className="text-white font-bold uppercase tracking-widest text-xs mb-4 block">For Radiologists</span>
+              <h2 className="text-3xl md:text-4xl font-syne font-bold text-white mb-6">
+                Read faster. Earn more. Work from anywhere.
+              </h2>
+              <ul className="space-y-3 mb-8">
+                {['AI drafts the report, you validate', 'Guaranteed minimum earnings', 'Choose your hours and workload', 'Malpractice insurance included'].map(item => (
+                  <li key={item} className="flex items-center gap-3 text-brand-light/80">
+                    <div className="w-1.5 h-1.5 bg-white rounded-full" />
+                    <span className="font-medium">{item}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
-            <div className="relative z-10 inline-flex items-center gap-2 font-sans text-sm font-bold border-b border-brand-accent text-brand-accent pb-1 w-max mt-auto">
-              See what you'll earn <span className="group-hover:translate-x-1 transition-transform">&rarr;</span>
-            </div>
-          </motion.a>
+            
+            <a href="#radiologists" className="relative z-10 btn-secondary self-start w-full sm:w-auto">
+              Apply to join network
+            </a>
+          </motion.div>
 
         </div>
       </div>
-    </motion.section>
+    </section>
   );
 };
 
